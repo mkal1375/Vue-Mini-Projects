@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Monster Slayer</title>
+    <link rel="stylesheet" href="foundation.min.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <section class="logo" style="max-width: 30%;margin: 2em auto;">
+        <img src="logo.png" alt="logo" style="width: 100%">
+    </section>
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: playerHealth + '%'}">
+                    {{ playerHealth }}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" style="background-color: green; margin: 0; color: white;" :style="{width: monsterHealth + '%'}">
+                    {{ monsterHealth }}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" v-if="!gameIsRunning">
+        <div class="small-12 columns">
+            <button id="start-game" @click="startGame">START NEW GAME</button>
+        </div>
+    </section>
+    <template v-else>
+    <section class="row controls">
+        <div class="small-12 columns">
+            <button id="attack" @click="attack">ATTACK</button>
+            <button id="special-attack" @click="specialAttack" v-if="totalDamage > 50">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal" v-if="totalDamage > 50">HEAL</button>
+            <button id="give-up" @click="giveUp">GIVE UP</button>
+        </div>
+    </section>
+    <section class="row log" v-if="logs.length > 1">
+        <div class="small-12 columns">
+            <ul>
+                <li v-for="log in logs" :class="log.class">
+                    {{ log.text }}
+                </li>
+            </ul>
+        </div>
+    </section>
+    </template>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
