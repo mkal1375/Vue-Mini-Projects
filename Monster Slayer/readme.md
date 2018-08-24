@@ -1,7 +1,7 @@
 <p align="center">
   <img src="logo.png">
 </p>
-a simple vue project from [udemy](https://www.udemy.com/vuejs-2-the-complete-guide) vue course.
+a simple vue project from udemy vuejs 2.0 course.
 try to kill monster 
 
 ## Instalation
