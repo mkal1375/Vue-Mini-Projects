@@ -1,6 +1,7 @@
 # wonderful-quotes
 
 > A Vue.js project
+simple add and remove quotes client.
 
 ## Build Setup
 
