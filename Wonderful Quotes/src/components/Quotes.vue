@@ -1,37 +1,32 @@
 <template>
   <div class="component">
-      <div class="quote" v-for="(quote, index) in quotesList" @click="deleteQuoteFn(index)">
-        {{ quote }}
-      </div>
-    </div>
+    <mkal-quote v-for="(quote, index) in quotesList" @click.native="deleteQuoteFn(index)">
+      {{ quote }}
+    </mkal-quote>
+  </div>
 </template>
 
 <script>
+  import Quote from './Quote'
   export default {
     props: {
       quotesList: Array,
       deleteQuoteFn: Function
     },
+    components:{
+      mkalQuote: Quote
+    }
   }
 </script>
 
 <style scoped>
-  .quote{
-    font-family: Aladin;
-    display: table;
-    font-size: 1.5em;
-    padding: 1em;
-    border: 1px solid lightgray;
-    margin: .2em;
-    border-radius: 10px;
-    transition: all .3s ease;
-    float: left;
-  }
-  .quote:hover{
+
+  .quote:hover {
     background-color: rgb(255, 193, 190);
     cursor: pointer;
   }
-  .component{
+
+  .component {
     margin-top: 2em;
   }
 </style>

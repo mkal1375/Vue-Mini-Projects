@@ -1,6 +1,7 @@
 <template>
   <div CLASS="component">
     <h1 class="headerTitle">Wonderful Quotes</h1>
+    <span style="margin-top: 4em">Quotes Counter</span>
     <div class="progressBar">
       <div class="innerBar" :style="{width: barWidth}">
         {{ barInfo }}
@@ -36,6 +37,7 @@
   }
   .component{
     margin-top: 2em;
+    text-align: center;
   }
   .headerTitle {
     font-family: Aladin;
@@ -46,7 +48,7 @@
     border: 1px solid grey;
     border-radius: 20px;
     background-color: #e9e9e9;
-    margin: 2em 0;
+    margin-bottom: 2em;
   }
   .innerBar{
     border-radius: 20px;

@@ -1,8 +1,9 @@
 <template>
   <div class="component">
     <textarea cols="40" rows="5" placeholder="write your quote . . " v-model="quoteText"
-              @keyup.enter="saveQuote()"></textarea>
-    <button @clik="saveQuote()">Save Quote</button>
+              @keyup.enter="saveQuote"></textarea>
+    <button @click="saveQuote">Save Quote</button>
+
   </div>
 </template>
 
@@ -13,12 +14,9 @@
         quoteText: '',
       }
     },
-    props: {
-      saveQuoteFn: Function,
-    },
     methods: {
       saveQuote() {
-        this.saveQuoteFn(this.quoteText);
+        this.$emit('newQuoteCreated', this.quoteText)
         this.quoteText = ''
       }
     }
